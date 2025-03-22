@@ -1,0 +1,24 @@
+<div class="add-product-container">
+  <h1 class="add-product-title">Agregar Producto</h1>
+  <form action="/api/products" method="POST" class="add-product-form">
+    <label for="title">Título:</label>
+    <input type="text" name="title" id="title" required>
+
+    <label for="description">Descripción:</label>
+    <textarea name="description" id="description" required></textarea>
+
+    <label for="price">Precio:</label>
+    <input type="number" name="price" id="price" step="0.01" required>
+
+    <label for="stock">Stock:</label>
+    <input type="number" name="stock" id="stock" required>
+
+    <label for="category">Categoría:</label>
+    <input type="text" name="category" id="category" required>
+
+    <label for="image">URL Imagen (opcional):</label>
+    <input type="url" name="image" id="image">
+
+    <button type="submit" class="add-product-button">Crear Producto</button>
+  </form>
+</div>
