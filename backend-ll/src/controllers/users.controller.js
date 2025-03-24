@@ -26,7 +26,7 @@ class UserController extends Controllers {
       if (userData.role === 'admin') {
         return res.redirect('/api/products/admin');
       } else {
-        return res.redirect('/products'); // O cualquier otra ruta para usuarios normales
+        return res.redirect('/api/products'); // O cualquier otra ruta para usuarios normales
       }
     } catch (error) {
       next(error);

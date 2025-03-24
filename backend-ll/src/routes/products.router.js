@@ -5,6 +5,7 @@ import { productController } from "../controllers/product.controller.js";
 
 const router = express.Router();
 
+router.get('/', productController.getAllProducts);
 // Ruta para renderizar el formulario de agregar productos (solo admin)
 router.get('/admin', 
     passport.authenticate('current', { session: false }), 
@@ -14,6 +15,7 @@ router.get('/admin',
     }
   );
 
+router.post('/addProduct', productController.createProduct);
 router.post('/:id', productController.getProdById);
 //router.post('/cart/:cid/products/:pid', productController);
 

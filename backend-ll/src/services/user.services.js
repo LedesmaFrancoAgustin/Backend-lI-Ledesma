@@ -48,7 +48,8 @@ class UserService extends Services {
       first_name: user.first_name,
       last_name: user.last_name,
       age: user.age,
-      role: user.role
+      role: user.role,
+      cart: user.cart
     };
 
     //const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '24h' });

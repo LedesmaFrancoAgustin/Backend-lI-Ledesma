@@ -25,6 +25,14 @@ class ProductRepository {
       throw new Error(error);
     }
   };
+  getAll = async () => {
+    try {
+      const products = await this.dao.getAll();
+      return products.map(p => new ProductResDTO(p));
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 }
 
 export const prodRepository = new ProductRepository();

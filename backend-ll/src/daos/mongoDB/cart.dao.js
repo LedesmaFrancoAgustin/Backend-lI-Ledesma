@@ -17,7 +17,7 @@ export default class CartDaoMongoDB extends MongoDao {
 
   async getById(id) {
     try {
-      return await this.model.findById(id).populate("products.product");
+      return await this.model.findById(id).populate("products.product").lean();
     } catch (error) {
       throw new Error(error);
     }

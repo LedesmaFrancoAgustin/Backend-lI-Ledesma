@@ -18,12 +18,21 @@ class ProductController extends Controllers {
     }
   };
 
+  getAllProducts = async (req, res, next) => {
+    try {
+      const products = await this.service.getAll(); // Usando el service
+      res.render('products', { products });
+    } catch (error) {
+      next(error);
+    }
+  };
+
   createProduct = [
     passport.authenticate('current', { session: false }),
     authorize(['admin']),
     async (req, res) => {
       try {
-        const newProduct = await productService.createProduct(req.body);
+        const newProduct = await this.service.createProduct(req.body);
         res.status(201).json({
           message: 'Producto creado correctamente por administrador.',
           product: newProduct

@@ -1,8 +1,10 @@
 export default class ProductResDTO {
     constructor(product) {
-      this.nombre = product.name;
-      this.precio = product.price;
-      this.disponibilidad = product.stock;
+      this.title = product.title;
+      this.price = product.price;
+      this.stock = product.stock;
+      this.description = product.description;
+      this._id = product.id;
     }
   }
   

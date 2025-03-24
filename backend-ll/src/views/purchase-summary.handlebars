@@ -1,0 +1,42 @@
+<div class="purchase-summary-page">
+    <h1>Resumen de tu compra 🧾</h1>
+
+    {{#if purchasedProducts.length}}
+        <h2>Productos comprados exitosamente:</h2>
+        <table class="purchase-table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each purchasedProducts}}
+                    <tr>
+                        <td>{{this.product.title}}</td>
+                        <td>{{this.quantity}}</td>
+                        <td>$ {{this.product.price}}</td>
+                        <td>$ {{multiply this.quantity this.product.price}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        <h2>Total: ${{cartTotal purchasedProducts}}</h2>
+    {{else}}
+        <p>No se pudo comprar ningún producto debido a falta de stock.</p>
+    {{/if}}
+
+    {{#if notPurchasedProducts.length}}
+        <h2>Productos sin stock suficiente:</h2>
+        <ul>
+            {{#each notPurchasedProducts}}
+                <li>{{this.product.title}} — Cantidad solicitada: {{this.quantity}}, Stock disponible: {{this.product.stock}}</li>
+            {{/each}}
+        </ul>
+    {{/if}}
+
+    <a href="/api/products" class="continue-shopping-btn">Volver a la tienda 🛍️</a>
+</div>

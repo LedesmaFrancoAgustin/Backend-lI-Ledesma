@@ -7,6 +7,16 @@ class CartServices extends Services {
     super(cartDao);
   }
 
+  getCartById = async (cartId) => {
+    try {
+      const cart = await this.dao.getById(cartId);
+      return cart;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+  
+
   createCart = async() =>{
     try {
       return await this.dao.create();

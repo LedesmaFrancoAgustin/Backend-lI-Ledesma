@@ -1,7 +1,7 @@
 import Services from "./service.manager.js";
-// import { prodDao } from "../daos/mongodb/product.dao.js";
+import { prodDao } from "../daos/mongoDB/product.dao.js"
 import factory from "../daos/factory.js";
-const { prodDao } = factory;
+
 import { prodRepository } from "../repository/product.repository.js";
 
 class ProductService extends Services {
@@ -16,6 +16,14 @@ class ProductService extends Services {
             throw new Error(error);
         }
     };
+
+    getAll  = async () => {
+      try {
+          return await prodRepository.getAll();
+      } catch (error) {
+          throw new Error(error);
+      }
+  };
 
     createProduct = async (productData) => {
         const { title, description, price, stock, category, image } = productData;
