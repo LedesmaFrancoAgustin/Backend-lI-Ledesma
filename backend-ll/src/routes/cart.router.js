@@ -4,14 +4,7 @@ import { authorize } from '../middlewares/auth.middleware.js';
 import { cartController } from '../controllers/cart.controllers.js';
 
 const router = express.Router();
-/*
-router.get('/viewCart', 
-    passport.authenticate('current', { session: false }), 
-    (req, res) => {
-      res.render('cart'); 
-    }
-  );
-*/
+
 router.get(
     '/viewCart',
     passport.authenticate('current', { session: false }),
@@ -33,7 +26,6 @@ router.post(
     cartController.purchaseCart
   );
 
-// (Opcional) Ruta para ver el carrito del usuario
 router.get(
   '/',
   passport.authenticate('current', { session: false }),

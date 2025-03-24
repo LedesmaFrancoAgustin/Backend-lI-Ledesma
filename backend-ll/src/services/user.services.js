@@ -17,7 +17,7 @@ class UserService extends Services {
     if (existingUser) {
       throw new Error('El email ya está registrado.');
     }
-    // Si quieres crear un carrito automáticamente cuando se registra un usuario:
+   
 
     const hashedPassword = createHash(password);
     const cart = await cartService.createCart(); 
@@ -41,7 +41,7 @@ class UserService extends Services {
     const isValidPass = bcrypt.compareSync(password, user.password);
     if (!isValidPass) throw new Error('Contraseña incorrecta');
 
-    // Creamos el token sin incluir info sensible
+   
     const payload = {
       id: user._id,
       email: user.email,
